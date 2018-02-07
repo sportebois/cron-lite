@@ -7,20 +7,21 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 
 	"github.com/sportebois/cron"
 	"gopkg.in/yaml.v2"
 )
 
 type ScheduledJob struct {
-	Command string `yaml:"command"`
-	Args    string `yaml:"args"`
-	Rule    string `yaml:"rule"`
+	Command string   `yaml:"command"`
+	Args    []string `yaml:"args"`
+	Rule    string   `yaml:"rule"`
 }
 
 func (sj ScheduledJob) Run() {
 	log.Print(sj)
-	cmd := exec.Command(sj.Command, sj.Args)
+	cmd := exec.Command(sj.Command, sj.Args...)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	err := cmd.Run()
@@ -59,7 +60,7 @@ func main() {
 	cnt := 0
 	c := cron.New()
 	for _, item := range m {
-		log.Printf("adding new job: [%s %s]: %s\n", item.Command, item.Args, item.Rule)
+		log.Printf("adding new job: [%s %s]: %s\n", item.Command, strings.Join(item.Args, " "), item.Rule)
 		c.AddJob(item.Rule, item)
 		cnt++
 	}

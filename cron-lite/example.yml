@@ -1,6 +1,17 @@
 - command: uname
-  args: '-s'
+  args:
+    - '-s'
   rule: '@every 5s'
 - command: uname
-  args: '-a'
+  args:
+    - '-a'
   rule: '@every 7s'
+- command: ls
+  args: ['-a', '-l']
+  rule: '@every 7s'
+
+# For sample cron commands, please check https://github.com/robfig/cron/blob/master/doc.go
+# 0 30 * * * *
+# @hourly
+# @every 1h30m
+# 0 18 * * 1-5   For every work day at 18:00
