@@ -40,7 +40,7 @@ func main() {
 		log.Fatal("Please specify filename with -f")
 	}
 
-	log.Printf("cron-lite v%s by Quantverse", version)
+	log.Printf("cron-lite v%s", version)
 	log.Printf("loading config from %s", *fnamePtr)
 
 	filename, _ := filepath.Abs(*fnamePtr)
