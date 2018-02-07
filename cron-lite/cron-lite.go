@@ -8,7 +8,7 @@ import (
 	"os/exec"
 	"path/filepath"
 
-	"github.com/robfig/cron"
+	"github.com/sportebois/cron"
 	"gopkg.in/yaml.v2"
 )
 
