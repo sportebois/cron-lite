@@ -1,6 +1,5 @@
 # cron-lite
 
-Based on quantverse/cron-lite
-New features: multiple argument support
+Simple CRON implementation running in foreground. Based on [robfig/cron](https://github.com/robfig/cron).
 
-Simple CRON implementation running in foreground. Based on https://github.com/robfig/cron.
+Fork from [quantverse/cron-lite](https://github.com/quantverse/cron-lite) to add multiple argument support
